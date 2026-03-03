@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centrum Mocy — Niezależność energetyczna domu i firmy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080E17;--bg2:#0C1520;--bg3:#101d2e;--gold:#E8A020;--gold2:#F5C842;--red:#C0392B;--slate:#6B84A0;--mist:#A8BECE;--white:#EDF2F7;--border:rgba(232,160,32,0.15)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Mulish',sans-serif;overflow-x:hidden;line-height:1.6}
+body::after{content:'';position:fixed;inset:0;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+.logo-svg-wrap{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.logo-mark{width:38px;height:38px;flex-shrink:0}
+.logo-text-wrap{display:flex;flex-direction:column;line-height:1}
+.logo-top{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.logo-bottom{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-top:-2px}
+.logo-bottom em{color:var(--gold);font-style:normal}
+.logo-domain{font-size:.58rem;color:var(--slate);letter-spacing:.1em;margin-top:1px;font-family:'Mulish',sans-serif;font-weight:400}
+nav{position:fixed;top:0;width:100%;z-index:500;padding:0 6vw;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,14,23,0.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+nav ul a{color:var(--slate);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+nav ul a:hover{color:var(--gold)}
+.nav-btn{padding:.5rem 1.4rem;background:transparent;border:1px solid var(--gold);color:var(--gold)!important;border-radius:2px;font-weight:700!important;transition:background .2s,color .2s!important}
+.nav-btn:hover{background:var(--gold)!important;color:var(--bg)!important}
+#hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;align-items:center;padding:100px 0 60px 6vw;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:var(--bg)}
+.hero-glow{position:absolute;top:-10%;right:-5%;width:65%;height:120%;background:conic-gradient(from 220deg at 60% 40%,rgba(232,160,32,0) 0deg,rgba(232,160,32,0.06) 60deg,rgba(192,57,43,0.04) 120deg,rgba(232,160,32,0) 180deg);z-index:0}
+.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(232,160,32,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,160,32,.03) 1px,transparent 1px);background-size:64px 64px}
+.hero-rp{position:absolute;top:0;right:0;width:46%;height:100%;background:linear-gradient(160deg,rgba(12,21,32,0.6) 0%,rgba(8,14,23,0.95) 100%);border-left:1px solid rgba(232,160,32,0.1);clip-path:polygon(6% 0,100% 0,100% 100%,0 100%);z-index:0}
+.hero-content{position:relative;z-index:1;padding-right:4vw}
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;background:rgba(232,160,32,0.08);border:1px solid rgba(232,160,32,0.25);color:var(--gold);padding:.38rem 1rem;border-radius:1px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2rem;animation:fadeUp .5s ease both}
+.blink-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero-h1{font-family:'Rajdhani',sans-serif;font-size:clamp(3rem,6vw,5.6rem);font-weight:700;line-height:.9;text-transform:uppercase;letter-spacing:.02em;animation:fadeUp .6s .1s ease both}
+.h1-dim{display:block;color:var(--mist)}
+.h1-acc{display:block;background:linear-gradient(100deg,var(--gold) 0%,var(--gold2) 60%,var(--gold) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+.h1-wh{display:block;color:var(--white)}
+.hero-sub{margin-top:1.8rem;font-size:1rem;color:var(--slate);line-height:1.75;max-width:480px;animation:fadeUp .6s .2s ease both}
+.hero-sub strong{color:var(--mist);font-weight:500}
+.hero-stats{display:flex;gap:0;margin-top:2.5rem;border:1px solid rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;animation:fadeUp .6s .3s ease both;max-width:400px}
+.hst{flex:1;padding:1.2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,0.07);background:rgba(12,21,32,0.7);transition:background .2s}
+.hst:last-child{border-right:none}
+.hst:hover{background:var(--bg3)}
+.hst-n{font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.hst-l{font-size:.68rem;color:var(--slate);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+.hero-btns{display:flex;gap:1rem;margin-top:2.5rem;animation:fadeUp .6s .38s ease both}
+.btn-fill{padding:.9rem 2rem;background:var(--gold);color:var(--bg);font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:none;border-radius:2px;cursor:pointer;text-decoration:none;box-shadow:0 6px 28px rgba(232,160,32,.3);transition:background .2s,transform .15s,box-shadow .15s;display:inline-block}
+.btn-fill:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(232,160,32,.4)}
+.btn-line{padding:.9rem 2rem;border:1px solid rgba(255,255,255,0.2);color:var(--mist);font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border-radius:2px;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.hero-warn{position:relative;z-index:1;padding:0 6vw 0 3vw;animation:fadeUp .7s .25s ease both}
+.warn-box{background:rgba(12,21,32,0.85);border:1px solid rgba(192,57,43,0.3);border-radius:4px;padding:2.2rem;position:relative;overflow:hidden;margin-bottom:1.2rem}
+.warn-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.warn-icon{font-size:1.8rem;margin-bottom:.9rem;display:block}
+.warn-box h3{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#e07060;margin-bottom:.6rem}
+.warn-box p{font-size:.87rem;color:var(--slate);line-height:1.65}
+.warn-list{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:.45rem}
+.warn-list li{font-size:.83rem;color:var(--mist);display:flex;gap:.5rem}
+.warn-list li::before{content:'//';color:var(--red);font-weight:700;font-size:.7rem;flex-shrink:0;margin-top:.1em}
+.sec{padding:6.5rem 6vw}
+.sec-alt{background:var(--bg2)}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.sec-h2{font-family:'Rajdhani',sans-serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.02em}
+.sec-h2 .acc{color:var(--gold)}
+.sec-p{color:var(--slate);font-size:.95rem;line-height:1.75;max-width:540px;margin-top:1rem}
+.trust-bar{background:var(--bg2);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);padding:1.2rem 6vw;display:flex;justify-content:center}
+.trust-inner{display:flex;flex-wrap:wrap;justify-content:center}
+.ti{display:flex;align-items:center;gap:.6rem;padding:.55rem 1.8rem;border-right:1px solid rgba(255,255,255,0.06);font-size:.75rem;color:var(--slate);letter-spacing:.1em;text-transform:uppercase}
+.ti:last-child{border-right:none}
+.ti-ico{font-size:1rem}
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.prob-cards{display:flex;flex-direction:column;gap:.9rem}
+.pcard{display:flex;gap:1.1rem;padding:1.5rem;background:var(--bg);border:1px solid rgba(255,255,255,0.06);border-radius:3px;transition:border-color .25s,background .25s}
+.pcard:hover{border-color:rgba(232,160,32,.22);background:var(--bg3)}
+.pcard-ico{width:48px;height:48px;flex-shrink:0;background:rgba(232,160,32,0.07);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.pcard h4{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem}
+.pcard p{font-size:.83rem;color:var(--slate);line-height:1.55}
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:3.5rem;background:rgba(255,255,255,0.04)}
+.aud-panel{padding:3.5rem 3rem;position:relative;overflow:hidden;transition:background .25s}
+.aud-dom{background:var(--bg2)}
+.aud-biz{background:var(--bg3)}
+.aud-panel:hover{background:#0f1e30}
+.aud-panel::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.aud-dom::after{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
+.aud-biz::after{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.aud-panel:hover::after{transform:scaleX(1)}
+.aud-num{position:absolute;top:1.5rem;right:2rem;font-family:'Rajdhani',sans-serif;font-size:7rem;font-weight:700;line-height:1;color:rgba(255,255,255,0.025);user-select:none}
+.aud-ico{font-size:2.8rem;display:block;margin-bottom:1.2rem}
+.aud-tag{font-size:.67rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.4rem}
+.aud-dom .aud-tag{color:#60a5fa}
+.aud-biz .aud-tag{color:var(--gold)}
+.aud-h3{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;text-transform:uppercase;line-height:1;margin-bottom:.9rem}
+.aud-desc{font-size:.9rem;color:var(--slate);line-height:1.7;margin-bottom:1.6rem}
+.aud-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.aud-list li{font-size:.85rem;color:var(--mist);display:flex;gap:.6rem;line-height:1.4}
+.aud-dom .aud-list li::before{content:'›';color:#60a5fa;font-weight:700;flex-shrink:0}
+.aud-biz .aud-list li::before{content:'›';color:var(--gold);font-weight:700;flex-shrink:0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.04)}
+.svc{background:var(--bg2);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .25s}
+.svc:hover{background:var(--bg3)}
+.svc-n{font-family:'Rajdhani',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:rgba(232,160,32,.3);margin-bottom:1.2rem;display:block}
+.svc-ico{font-size:2rem;display:block;margin-bottom:1rem}
+.svc h3{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem;line-height:1.1}
+.svc p{font-size:.85rem;color:var(--slate);line-height:1.65}
+.svc-badge{display:inline-block;margin-top:1.1rem;border:1px solid rgba(232,160,32,.25);color:var(--gold);font-size:.65rem;font-weight:700;padding:.22rem .7rem;border-radius:1px;text-transform:uppercase;letter-spacing:.1em}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.svc:hover::after{transform:scaleX(1)}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3.5rem}
+.ind{padding:1.8rem 1.5rem;border:1px solid rgba(255,255,255,0.06);border-radius:3px;background:var(--bg2);transition:border-color .25s,transform .3s}
+.ind:hover{border-color:rgba(232,160,32,.3);transform:translateY(-4px)}
+.ind-ico{font-size:2rem;margin-bottom:.9rem;display:block}
+.ind h3{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+.ind p{font-size:.8rem;color:var(--slate);line-height:1.5}
+.real-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.real{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;transition:border-color .25s,transform .25s}
+.real:hover{border-color:rgba(232,160,32,.28);transform:translateY(-5px)}
+.real-head{padding:2.2rem 2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+.real-cat{display:inline-block;margin-bottom:.9rem;border:1px solid rgba(232,160,32,.22);color:var(--gold);font-size:.65rem;font-weight:700;padding:.22rem .7rem;border-radius:1px;text-transform:uppercase;letter-spacing:.1em}
+.real h3{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;line-height:1.2;margin-bottom:.5rem}
+.real p{font-size:.83rem;color:var(--slate);line-height:1.55}
+.real-foot{padding:1.1rem 2rem;display:flex;gap:1.5rem}
+.rs strong{display:block;font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold);line-height:1}
+.rs span{font-size:.68rem;color:var(--slate);text-transform:uppercase;letter-spacing:.08em}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.pc{background:var(--bg);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.8rem 2.2rem;position:relative;transition:border-color .25s}
+.pc.hot{border-color:rgba(232,160,32,.4);background:linear-gradient(155deg,rgba(232,160,32,0.06) 0%,var(--bg) 65%);box-shadow:0 0 60px rgba(232,160,32,.06)}
+.pc:not(.hot):hover{border-color:rgba(232,160,32,.22)}
+.hot-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg);font-family:'Rajdhani',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem 1.2rem;border-radius:0 0 3px 3px;white-space:nowrap}
+.pc-tier{font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.pc-name{font-family:'Rajdhani',sans-serif;font-size:2.3rem;font-weight:700;text-transform:uppercase;line-height:1;margin-bottom:2rem}
+.pc-feats{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem}
+.pc-feats li{font-size:.875rem;color:var(--slate);display:flex;gap:.6rem;align-items:flex-start;line-height:1.4}
+.pc-feats li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.btn-gf{display:block;width:100%;padding:.88rem;background:var(--gold);color:var(--bg);font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;border:none;border-radius:2px;text-align:center;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn-gf:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-gl{display:block;width:100%;padding:.88rem;border:1px solid rgba(232,160,32,.35);color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;border-radius:2px;text-align:center;text-decoration:none;transition:background .2s,color .2s}
+.btn-gl:hover{background:var(--gold);color:var(--bg)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start}
+.c-promises{display:flex;flex-direction:column;gap:1rem;margin-top:2.2rem}
+.cp{display:flex;gap:1rem;align-items:flex-start;padding:1.3rem;background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:3px;transition:border-color .2s}
+.cp:hover{border-color:var(--border)}
+.cp-ico{font-size:1.5rem;flex-shrink:0}
+.cp h4{font-family:'Rajdhani',sans-serif;font-size:.92rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem}
+.cp p{font-size:.82rem;color:var(--slate);line-height:1.5}
+.form-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:2.8rem;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));border-radius:5px 5px 0 0}
+.form-wrap h3{font-family:'Rajdhani',sans-serif;font-size:1.7rem;font-weight:700;text-transform:uppercase;margin-bottom:.3rem;letter-spacing:.04em}
+.form-wrap>p{font-size:.86rem;color:var(--slate);margin-bottom:1.8rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.form-wrap input,.form-wrap select,.form-wrap textarea{width:100%;padding:.82rem 1rem;background:rgba(8,14,23,.9);border:1px solid rgba(255,255,255,0.09);border-radius:2px;color:var(--white);font-family:'Mulish',sans-serif;font-size:.88rem;margin-bottom:.8rem;outline:none;transition:border-color .2s}
+.form-wrap input:focus,.form-wrap select:focus,.form-wrap textarea:focus{border-color:var(--gold)}
+.form-wrap input::placeholder,.form-wrap textarea::placeholder{color:var(--slate)}
+.form-wrap select option{background:var(--bg2)}
+.form-wrap textarea{height:95px;resize:none}
+.form-submit{width:100%;padding:1rem;background:var(--gold);color:var(--bg);font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:none;border-radius:2px;cursor:pointer;box-shadow:0 6px 24px rgba(232,160,32,.28);transition:background .2s,transform .15s,box-shadow .15s}
+.form-submit:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(232,160,32,.4)}
+.form-note{text-align:center;font-size:.73rem;color:var(--slate);margin-top:.75rem}
+.form-note span{color:var(--gold)}
+footer{background:#04090f;border-top:1px solid rgba(255,255,255,0.04);padding:3.5rem 6vw 2rem}
+.ft-inner{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2.5rem;margin-bottom:2.5rem}
+.ft-brand p{font-size:.82rem;color:var(--slate);margin-top:.5rem;max-width:260px;line-height:1.55}
+.ft-col h4{font-family:'Rajdhani',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--slate);margin-bottom:.9rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.ft-col ul a{color:var(--mist);text-decoration:none;font-size:.84rem;transition:color .2s}
+.ft-col ul a:hover{color:var(--gold)}
+.ft-col p{font-size:.84rem;color:var(--mist);margin-bottom:.3rem}
+.ft-col a{color:var(--gold);text-decoration:none}
+.ft-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ft-bottom p{font-size:.75rem;color:rgba(107,132,160,0.5)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.d2{transition-delay:.2s}
+@media(max-width:1024px){#hero{grid-template-columns:1fr;padding-right:6vw}.hero-warn{padding:0;margin-top:2rem}.hero-rp{display:none}.prob-layout{grid-template-columns:1fr}.aud-grid{grid-template-columns:1fr}.price-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}.contact-layout{grid-template-columns:1fr}nav ul{display:none}}
+@media(max-width:700px){.svc-grid{grid-template-columns:1fr}.ind-grid{grid-template-columns:1fr 1fr}.real-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo-svg-wrap">
+    <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="19" cy="19" r="17.5" stroke="#E8A020" stroke-width="1.2" stroke-dasharray="4 2" opacity=".4"/>
+      <circle cx="19" cy="19" r="12" fill="rgba(232,160,32,0.06)" stroke="#E8A020" stroke-width="1"/>
+      <path d="M22 7L12 20h7l-3 11 10-15h-7l3-9z" fill="#E8A020"/>
+      <circle cx="19" cy="19" r="2.5" fill="#F5C842" opacity=".6"/>
+    </svg>
+    <div class="logo-text-wrap">
+      <span class="logo-top">Centrum</span>
+      <span class="logo-bottom"><em>M</em>ocy</span>
+      <span class="logo-domain">centrummocy.com.pl</span>
+    </div>
+  </a>
+  <ul>
+    <li><a href="#dla-kogo">Dla kogo</a></li>
+    <li><a href="#uslugi">Usługi</a></li>
+    <li><a href="#realizacje">Realizacje</a></li>
+    <li><a href="#cennik">Cennik</a></li>
+    <li><a href="#kontakt" class="nav-btn">Bezpłatna wycena</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div><div class="hero-glow"></div><div class="hero-grid"></div><div class="hero-rp"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="blink-dot"></span>30 lat doświadczenia · Cała Polska</div>
+    <h1 class="hero-h1">
+      <span class="h1-dim">Kiedy prąd</span>
+      <span class="h1-acc">Zawodzi —</span>
+      <span class="h1-wh">Ty działasz</span>
+    </h1>
+    <p class="hero-sub">W dobie <strong>rosnącej niestabilności sieci energetycznych</strong> przerwy w dostawie prądu to realne zagrożenie dla każdego domu i firmy. Agregaty z autostartem to Twoja polisa — zawsze gotowa, w sekundach.</p>
+    <div class="hero-stats">
+      <div class="hst"><span class="hst-n" id="cnt-y">30+</span><div class="hst-l">Lat w branży</div></div>
+      <div class="hst"><span class="hst-n" id="cnt-i">1000+</span><div class="hst-l">Instalacji</div></div>
+      <div class="hst"><span class="hst-n">24/7</span><div class="hst-l">Serwis</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-fill">Bezpłatna wycena →</a>
+      <a href="#dla-kogo" class="btn-line">Dla kogo?</a>
+    </div>
+  </div>
+  <div class="hero-warn">
+    <div class="warn-box">
+      <span class="warn-icon">⚡</span>
+      <h3>Sieć energetyczna pod presją</h3>
+      <p>Ekstremalne zjawiska pogodowe, transformacja energetyczna i starzejąca się infrastruktura — przerwy w dostawie prądu stają się normą, nie wyjątkiem.</p>
+      <ul class="warn-list">
+        <li>Nagłe blackouty bez ostrzeżenia</li>
+        <li>Przywracanie zasilania trwa godziny lub całe dni</li>
+        <li>Brak prądu = straty, zagrożenie zdrowia i mienia</li>
+        <li>Ubezpieczenie nie pokryje wszystkich Twoich strat</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="ti"><span class="ti-ico">⚙️</span> Autostart · SZR · ATS</div>
+    <div class="ti"><span class="ti-ico">🏠</span> Dom i firma</div>
+    <div class="ti"><span class="ti-ico">🚚</span> Ogólnopolska realizacja</div>
+    <div class="ti"><span class="ti-ico">🤝</span> Bezpośredni import</div>
+    <div class="ti"><span class="ti-ico">🛡️</span> Gwarancja i serwis</div>
+    <div class="ti"><span class="ti-ico">📋</span> Odbiory UDT</div>
+  </div>
+</div>
+
+<section class="sec" id="problem">
+  <div class="prob-layout">
+    <div class="reveal">
+      <div class="eyebrow">Dlaczego to ważne</div>
+      <h2 class="sec-h2">Niepewne czasy<br>wymagają<br><span class="acc">pewnego zasilania</span></h2>
+      <p class="sec-p">Polska energetyka stoi przed poważnymi wyzwaniami. Transformacja energetyczna i starzejąca się infrastruktura sprawiają, że przerwy w zasilaniu są coraz częstsze i trudniejsze do przewidzenia.</p>
+      <p class="sec-p" style="margin-top:.9rem">Agregat z autostartem to <strong style="color:var(--mist)">niezbędne zabezpieczenie</strong> — uruchamia się automatycznie, bez Twojej interwencji, w ciągu kilku sekund od zaniku napięcia.</p>
+    </div>
+    <div class="prob-cards reveal d2">
+      <div class="pcard"><div class="pcard-ico">🌩️</div><div><h4>Ekstremalne warunki pogodowe</h4><p>Burze i wichury coraz częściej uszkadzają linie energetyczne. Przerwy trwają od kilku godzin do kilku dni.</p></div></div>
+      <div class="pcard"><div class="pcard-ico">📈</div><div><h4>Przeciążona sieć energetyczna</h4><p>Pompy ciepła, pojazdy elektryczne i klimatyzatory generują szczyty zapotrzebowania, z którymi stara infrastruktura sobie nie radzi.</p></div></div>
+      <div class="pcard"><div class="pcard-ico">🔌</div><div><h4>Awarie bez ostrzeżenia</h4><p>Brak prądu może nastąpić o każdej porze. Autostart Centrum Mocy reaguje w sekundy — zanim zdążysz sięgnąć po telefon.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="dla-kogo">
+  <div class="reveal">
+    <div class="eyebrow">Dla kogo</div>
+    <h2 class="sec-h2">Dom lub firma —<br><span class="acc">każdy potrzebuje</span> ochrony</h2>
+  </div>
+  <div class="aud-grid reveal">
+    <div class="aud-panel aud-dom">
+      <div class="aud-num">01</div>
+      <span class="aud-ico">🏠</span>
+      <div class="aud-tag">Użytek domowy</div>
+      <h3 class="aud-h3">Twój dom<br>zawsze działa</h3>
+      <p class="aud-desc">Awaria prądu w środku nocy, padające ogrzewanie, zepsuta żywność — brak prądu w domu może zagrażać bezpieczeństwu Twojej rodziny. Agregat domowy eliminuje ten problem raz na zawsze.</p>
+      <ul class="aud-list">
+        <li>Ogrzewanie i klimatyzacja bez przerwy</li>
+        <li>Żywność w lodówce i zamrażarce bezpieczna</li>
+        <li>Urządzenia medyczne zawsze pod napięciem</li>
+        <li>Systemy alarmowe i monitoring ciągłe</li>
+        <li>Praca zdalna i internet bez zakłóceń</li>
+        <li>Ciche agregaty 5–30 kVA — idealne dla domu</li>
+      </ul>
+    </div>
+    <div class="aud-panel aud-biz">
+      <div class="aud-num">02</div>
+      <span class="aud-ico">🏭</span>
+      <div class="aud-tag">Użytek firmowy</div>
+      <h3 class="aud-h3">Twoja firma<br>nie staje</h3>
+      <p class="aud-desc">Każda minuta przestoju to realne straty finansowe i ryzyko utraty klientów. Profesjonalne zasilanie awaryjne zwraca się przy pierwszej awarii sieci energetycznej.</p>
+      <ul class="aud-list">
+        <li>Ciągłość produkcji — zero nieplanowanych przestojów</li>
+        <li>Ochrona serwerów, danych i systemów IT</li>
+        <li>Bezpieczeństwo pracowników i obiektu</li>
+        <li>Spełnienie wymogów prawnych (szpitale, hotele)</li>
+        <li>Agregaty 30–2000 kVA dla każdej skali</li>
+        <li>Systemy SZR i ATS — pełna automatyzacja</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="uslugi">
+  <div class="reveal">
+    <div class="eyebrow">Zakres usług</div>
+    <h2 class="sec-h2">Kompleksowo —<br><span class="acc">od doboru do serwisu</span></h2>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc"><span class="svc-n">— 01</span><span class="svc-ico">🎯</span><h3>Dobór i doradztwo</h3><p>Bezpłatna analiza potrzeb energetycznych. Precyzyjny dobór mocy i konfiguracji dla domu i firmy.</p><span class="svc-badge">Bezpłatna konsultacja</span></div>
+    <div class="svc"><span class="svc-n">— 02</span><span class="svc-ico">🚚</span><h3>Dostawa i posadowienie</h3><p>Bezpośredni import od producentów — lepsze ceny i szybsza dostawa. Profesjonalne fundamentowanie.</p><span class="svc-badge">Cała Polska</span></div>
+    <div class="svc"><span class="svc-n">— 03</span><span class="svc-ico">⚡</span><h3>Autostart / SZR / ATS</h3><p>Systemy automatycznego rozruchu i przełączania. Czas reakcji poniżej 10 sekund — bez ingerencji człowieka.</p><span class="svc-badge">Specjalizacja</span></div>
+    <div class="svc"><span class="svc-n">— 04</span><span class="svc-ico">🔧</span><h3>Montaż i uruchomienie</h3><p>Pełne prace instalacyjne, okablowanie, rozruch i testy obciążeniowe. Szkolenie obsługi w cenie.</p><span class="svc-badge">Pod klucz</span></div>
+    <div class="svc"><span class="svc-n">— 05</span><span class="svc-ico">🛡️</span><h3>Serwis i przeglądy</h3><p>Regularne przeglądy i konserwacja. Umowy serwisowe z gwarantowanym czasem reakcji 24/7.</p><span class="svc-badge">Serwis 24/7</span></div>
+    <div class="svc"><span class="svc-n">— 06</span><span class="svc-ico">📋</span><h3>Dokumentacja i odbiory</h3><p>Pełna dokumentacja, protokoły, certyfikaty. Wsparcie przy odbiorach UDT i audytach energetycznych.</p><span class="svc-badge">Kompleksowo</span></div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="branże">
+  <div class="reveal">
+    <div class="eyebrow">Branże i obiekty</div>
+    <h2 class="sec-h2">Każdy obiekt —<br><span class="acc">inne wyzwanie</span></h2>
+    <p class="sec-p">30 lat pracy z najbardziej wymagającymi obiektami w Polsce.</p>
+  </div>
+  <div class="ind-grid reveal">
+    <div class="ind"><span class="ind-ico">🏠</span><h3>Domy i wille</h3><p>5–30 kVA, ciche i estetyczne. Ochrona rodziny i dobytku przez całą dobę.</p></div>
+    <div class="ind"><span class="ind-ico">🏭</span><h3>Przemysł</h3><p>Zakłady, fabryki, magazyny. Ciągłość produkcji to absolutny priorytet.</p></div>
+    <div class="ind"><span class="ind-ico">🌾</span><h3>Agrobiznes</h3><p>Fermy, chłodnie, suszarnie. Ochrona upraw i zwierząt 24 godziny.</p></div>
+    <div class="ind"><span class="ind-ico">🏥</span><h3>Służba zdrowia</h3><p>Szpitale, kliniki. Wymogi prawne i bezpieczeństwo pacjentów.</p></div>
+    <div class="ind"><span class="ind-ico">🏨</span><h3>Hotele i gastronomia</h3><p>Komfort gości nie może ucierpieć przez niespodziewaną awarię.</p></div>
+    <div class="ind"><span class="ind-ico">🖥️</span><h3>IT / Data Centers</h3><p>Serwerownie — ochrona danych i ciągłość działania systemów.</p></div>
+    <div class="ind"><span class="ind-ico">🏗️</span><h3>Budownictwo</h3><p>Place budowy, deweloperzy. Zasilanie bez przestojów i opóźnień.</p></div>
+    <div class="ind"><span class="ind-ico">🏪</span><h3>Handel i logistyka</h3><p>Magazyny, chłodnie. Ochrona towaru i ciągłość sprzedaży.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="realizacje">
+  <div class="reveal">
+    <div class="eyebrow">Wybrane realizacje</div>
+    <h2 class="sec-h2">Ponad 1000 instalacji<br><span class="acc">w całej Polsce</span></h2>
+  </div>
+  <div class="real-grid reveal">
+    <div class="real">
+      <div class="real-head"><div class="real-cat">Przemysł · Mazowsze</div><h3>Zakład produkcji spożywczej</h3><p>Agregat z systemem SZR dla zakładu 24/7. Przełączenie poniżej 3 sekund. Zero przestojów od uruchomienia.</p></div>
+      <div class="real-foot"><div class="rs"><strong>500 kVA</strong><span>Moc agregatu</span></div><div class="rs"><strong>&lt;3 sek</strong><span>Przełączenie</span></div></div>
+    </div>
+    <div class="real">
+      <div class="real-head"><div class="real-cat">Agrobiznes · Wielkopolska</div><h3>Ferma drobiu — 60 000 szt.</h3><p>Dwa agregaty w konfiguracji redundantnej. Autostart w 10 sekund. Ochrona stada wartego ponad 1 mln zł.</p></div>
+      <div class="real-foot"><div class="rs"><strong>2×200 kVA</strong><span>Konfiguracja</span></div><div class="rs"><strong>10 sek</strong><span>Autostart</span></div></div>
+    </div>
+    <div class="real">
+      <div class="real-head"><div class="real-cat">Dom · Podkarpacie</div><h3>Willa z basenem i ochroną</h3><p>Cichy agregat 15 kVA z autostartem. Ochrona ogrzewania, alarmu, basenu i całej instalacji domowej.</p></div>
+      <div class="real-foot"><div class="rs"><strong>15 kVA</strong><span>Moc agregatu</span></div><div class="rs"><strong>42 dB</strong><span>Poziom hałasu</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="cennik">
+  <div class="reveal">
+    <div class="eyebrow">Pakiety i wycena</div>
+    <h2 class="sec-h2">Dopasowane<br><span class="acc">do każdej skali</span></h2>
+    <p class="sec-p">Każda wycena jest bezpłatna i przygotowywana indywidualnie pod Twój obiekt.</p>
+  </div>
+  <div class="price-grid reveal">
+    <div class="pc">
+      <div class="pc-tier">Pakiet</div><div class="pc-name">Dom &amp; Posesja</div>
+      <ul class="pc-feats">
+        <li>Agregat 5–30 kVA z autostartem</li><li>Bezpłatny dobór mocy i konsultacja</li><li>Dostawa i montaż pod klucz</li><li>Uruchomienie i test obciążeniowy</li><li>Szkolenie domowników</li><li>Gwarancja 2 lata + serwis roczny</li>
+      </ul>
+      <a href="#kontakt" class="btn-gl">Zapytaj o wycenę</a>
+    </div>
+    <div class="pc hot">
+      <div class="hot-tag">Najczęściej wybierany</div>
+      <div class="pc-tier">Pakiet</div><div class="pc-name">Firma Premium</div>
+      <ul class="pc-feats">
+        <li>Agregat 30–500 kVA z autostartem</li><li>System SZR lub ATS w standardzie</li><li>Kompleksowe prace instalacyjne</li><li>Dokumentacja i protokoły odbioru</li><li>Umowa serwisowa 12 mc gratis</li><li>Priorytetowy czas reakcji — 4h</li><li>Gwarancja 3 lata</li>
+      </ul>
+      <a href="#kontakt" class="btn-gf">Zapytaj o wycenę</a>
+    </div>
+    <div class="pc">
+      <div class="pc-tier">Pakiet</div><div class="pc-name">Enterprise</div>
+      <ul class="pc-feats">
+        <li>Agregaty 500+ kVA, systemy redundantne</li><li>Projekt wykonawczy i nadzór</li><li>Odbiory UDT i certyfikacje</li><li>Dedykowany opiekun projektu</li><li>SLA 24/7 — czas reakcji 2h</li><li>Monitoring zdalny online</li><li>Indywidualne warunki finansowania</li>
+      </ul>
+      <a href="#kontakt" class="btn-gl">Zapytaj o wycenę</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kontakt">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="eyebrow">Skontaktuj się</div>
+      <h2 class="sec-h2">Bezpłatna<br><span class="acc">wycena</span> i doradztwo</h2>
+      <p class="sec-p">Opisz swoje potrzeby — w ciągu 2 godzin w dni robocze oddzwonimy z konkretną propozycją. Bez presji, bez zobowiązań.</p>
+      <div class="c-promises">
+        <div class="cp"><div class="cp-ico">⚡</div><div><h4>Odpowiedź w 2 godziny</h4><p>Każde zapytanie traktujemy priorytetowo. Żaden klient nie czeka dłużej niż trzeba.</p></div></div>
+        <div class="cp"><div class="cp-ico">🎯</div><div><h4>Doradztwo bez presji</h4><p>Naszym celem jest najlepsze rozwiązanie dla Ciebie — nie sprzedaż za wszelką cenę.</p></div></div>
+        <div class="cp"><div class="cp-ico">🛡️</div><div><h4>30 lat gwarancji jakości</h4><p>Trzy dekady i ponad 1000 instalacji. Każda objęta pełną gwarancją i serwisem.</p></div></div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="form-wrap">
+        <h3>Napisz do nas</h3>
+        <p>Opisz potrzeby, dobierzemy idealne rozwiązanie</p>
+        <div class="f-row">
+          <input type="text" placeholder="Imię i nazwisko">
+          <input type="text" placeholder="Firma (opcjonalnie)">
+        </div>
+        <div class="f-row">
+          <input type="tel" placeholder="Telefon">
+          <input type="email" placeholder="E-mail">
+        </div>
+        <select>
+          <option value="">Rodzaj obiektu...</option>
+          <option>Dom / willa prywatna</option><option>Zakład produkcyjny</option><option>Gospodarstwo rolne</option><option>Szpital / obiekt medyczny</option><option>Hotel / restauracja</option><option>IT / serwerownia</option><option>Budowa / deweloper</option><option>Inny obiekt</option>
+        </select>
+        <textarea placeholder="Opisz krótko potrzeby (moc, lokalizacja, termin)..."></textarea>
+        <button class="form-submit">Wyślij zapytanie — bezpłatnie →</button>
+        <p class="form-note"><span>✓</span> Bezpłatna konsultacja &nbsp;·&nbsp; <span>✓</span> Bez zobowiązań &nbsp;·&nbsp; <span>✓</span> Odpowiedź w 2h</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <a href="#" class="logo-svg-wrap">
+        <svg class="logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="19" cy="19" r="17.5" stroke="#E8A020" stroke-width="1.2" stroke-dasharray="4 2" opacity=".4"/>
+          <circle cx="19" cy="19" r="12" fill="rgba(232,160,32,0.06)" stroke="#E8A020" stroke-width="1"/>
+          <path d="M22 7L12 20h7l-3 11 10-15h-7l3-9z" fill="#E8A020"/>
+          <circle cx="19" cy="19" r="2.5" fill="#F5C842" opacity=".6"/>
+        </svg>
+        <div class="logo-text-wrap">
+          <span class="logo-top">Centrum</span>
+          <span class="logo-bottom"><em>M</em>ocy</span>
+        </div>
+      </a>
+      <p style="margin-top:.8rem">30 lat doświadczenia w kompleksowych rozwiązaniach zasilania awaryjnego dla domów i firm w całej Polsce.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Nawigacja</h4>
+      <ul><li><a href="#dla-kogo">Dla kogo?</a></li><li><a href="#uslugi">Usługi</a></li><li><a href="#branże">Branże</a></li><li><a href="#realizacje">Realizacje</a></li><li><a href="#cennik">Cennik</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h4>Usługi</h4>
+      <ul><li><a href="#">Agregaty domowe</a></li><li><a href="#">Agregaty przemysłowe</a></li><li><a href="#">Autostart / SZR / ATS</a></li><li><a href="#">Serwis i przeglądy</a></li><li><a href="#">Dokumentacja UDT</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h4>Kontakt</h4>
+      <p>📞 <a href="tel:+48000000000">+48 000 000 000</a></p>
+      <p>✉️ <a href="mailto:biuro@centrummocy.com.pl">biuro@centrummocy.com.pl</a></p>
+      <p style="margin-top:.6rem;font-size:.8rem;color:var(--slate)">Pn–Pt: 8:00–18:00<br>Serwis awaryjny: 24/7</p>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2024 Centrum Mocy — centrummocy.com.pl — Wszelkie prawa zastrzeżone</p>
+    <p>Polityka prywatności · Regulamin</p>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function countUp(el,end,sfx=''){let s=null;const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1800,1);const e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*end).toLocaleString('pl')+sfx;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+const cio=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){countUp(document.getElementById('cnt-y'),30,'+');countUp(document.getElementById('cnt-i'),1000,'+');cio.disconnect()}})},{threshold:.5});
+const se=document.querySelector('.hero-stats');if(se)cio.observe(se);
+</script>
+</body>
+</html>
