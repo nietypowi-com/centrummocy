@@ -178,6 +178,28 @@ footer{background:#04090f;border-top:1px solid rgba(255,255,255,0.04);padding:3.
 .d2{transition-delay:.2s}
 @media(max-width:1024px){#hero{grid-template-columns:1fr;padding-right:6vw}.hero-warn{padding:0;margin-top:2rem}.hero-rp{display:none}.prob-layout{grid-template-columns:1fr}.aud-grid{grid-template-columns:1fr}.price-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}.contact-layout{grid-template-columns:1fr}nav ul{display:none}}
 @media(max-width:700px){.svc-grid{grid-template-columns:1fr}.ind-grid{grid-template-columns:1fr 1fr}.real-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+
+/* BLOG */
+#blog{padding:6.5rem 6vw;background:var(--bg);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.blog-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;}
+.blog-card:hover{border-color:rgba(232,160,32,.28);transform:translateY(-5px);}
+.blog-card-top{padding:2rem 2rem 1.2rem;}
+.blog-cat{display:inline-block;margin-bottom:.9rem;border:1px solid rgba(232,160,32,.22);color:var(--gold);font-size:.65rem;font-weight:700;padding:.22rem .75rem;border-radius:1px;text-transform:uppercase;letter-spacing:.1em;}
+.blog-card h3{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;line-height:1.2;margin-bottom:.7rem;letter-spacing:.02em;}
+.blog-card p{font-size:.85rem;color:var(--slate);line-height:1.65;}
+.blog-card-bot{padding:1.2rem 2rem 1.8rem;margin-top:auto;border-top:1px solid rgba(255,255,255,0.05);}
+.blog-meta{font-size:.72rem;color:var(--slate);text-transform:uppercase;letter-spacing:.09em;margin-bottom:1rem;}
+.blog-meta span{color:var(--gold);margin-right:.5rem;}
+.blog-read{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;transition:gap .2s;}
+.blog-read:hover{gap:.9rem;}
+.blog-body{display:none;}
+.blog-card.expanded .blog-body{display:block;padding:0 2rem 1.5rem;font-size:.87rem;color:var(--slate);line-height:1.75;}
+.blog-card.expanded .blog-body h4{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:var(--mist);margin:1.2rem 0 .5rem;letter-spacing:.04em;}
+.blog-card.expanded .blog-body ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin:.5rem 0 1rem;}
+.blog-card.expanded .blog-body ul li{display:flex;gap:.6rem;}
+.blog-card.expanded .blog-body ul li::before{content:'›';color:var(--gold);flex-shrink:0;}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -201,7 +223,7 @@ footer{background:#04090f;border-top:1px solid rgba(255,255,255,0.04);padding:3.
     <li><a href="#uslugi">Usługi</a></li>
     <li><a href="#realizacje">Realizacje</a></li>
     <li><a href="#cennik">Cennik</a></li>
-    <li><a href="#kontakt" class="nav-btn">Bezpłatna wycena</a></li>
+    <li><a href="#blog">Blog</a></li><li><a href="#kontakt" class="nav-btn">Bezpłatna wycena</a></li>
   </ul>
 </nav>
 
@@ -389,6 +411,110 @@ footer{background:#04090f;border-top:1px solid rgba(255,255,255,0.04);padding:3.
       </ul>
       <a href="#kontakt" class="btn-gl">Zapytaj o wycenę</a>
     </div>
+  </div>
+</section>
+
+
+<section class="sec" id="blog">
+  <div class="reveal">
+    <div class="eyebrow">Wiedza i porady</div>
+    <h2 class="sec-h2">Blog — <span class="acc">ekspert radzi</span></h2>
+    <p class="sec-p">Praktyczne informacje o agregatach prądotwórczych, zasilaniu awaryjnym i niezależności energetycznej.</p>
+  </div>
+  <div class="blog-grid reveal">
+
+    <!-- ARTYKUŁ 1 -->
+    <article class="blog-card" itemscope itemtype="https://schema.org/Article">
+      <div class="blog-card-top">
+        <span class="blog-cat">Poradnik</span>
+        <h3 itemprop="headline">Agregat prądotwórczy z autostartem — jak działa i dlaczego warto?</h3>
+        <p itemprop="description">Autostart to technologia, która zmienia agregat z pasywnego sprzętu w aktywny system ochrony. Dowiedz się, jak działa SZR i ATS oraz kiedy agregat z autostartem jest absolutną koniecznością.</p>
+      </div>
+      <div class="blog-card-bot">
+        <div class="blog-meta"><span>📅</span>Marzec 2025 · <span>⏱</span>8 min czytania</div>
+        <a class="blog-read" href="#" onclick="this.closest('.blog-card').classList.toggle('expanded');this.textContent=this.closest('.blog-card').classList.contains('expanded')?'Zwiń ↑':'Czytaj dalej →';return false;">Czytaj dalej →</a>
+      </div>
+      <div class="blog-body" itemprop="articleBody">
+        <p>Agregat prądotwórczy z autostartem to rozwiązanie, które w ciągu kilku sekund od zaniku napięcia w sieci <strong>automatycznie uruchamia się i przejmuje zasilanie obiektu</strong> — bez jakiejkolwiek interwencji człowieka. To kluczowa różnica między zwykłym agregatem a systemem zasilania awaryjnego klasy profesjonalnej.</p>
+        <h4>Jak działa system autostart?</h4>
+        <p>System autostartu składa się z trzech głównych elementów: sterownika monitorującego napięcie w sieci, systemu przełączania zasilania (SZR lub ATS) oraz samego agregatu. Gdy sterownik wykryje zanik lub niedopuszczalny spadek napięcia, w ciągu kilku sekund:</p>
+        <ul>
+          <li>Sterownik wysyła sygnał do rozruchu silnika agregatu</li>
+          <li>Po osiągnięciu stabilnych parametrów napięcia i częstotliwości</li>
+          <li>Układ SZR/ATS przełącza zasilanie z sieci na agregat</li>
+          <li>Obiekt działa normalnie — bez przerwy w zasilaniu kluczowych urządzeń</li>
+        </ul>
+        <h4>SZR czy ATS — jaka różnica?</h4>
+        <p><strong>SZR (Samoczynny Załącznik Rezerwy)</strong> to układ stosowany w instalacjach średniego napięcia i przemysłowych. Czas przełączenia wynosi zwykle 3–15 sekund. <strong>ATS (Automatic Transfer Switch)</strong> to rozwiązanie dla instalacji niskiego napięcia, popularne w obiektach komercyjnych i budynkach użyteczności publicznej.</p>
+        <h4>Kiedy autostart jest koniecznością?</h4>
+        <ul>
+          <li>Szpitale, kliniki i przychodnie — wymóg prawny</li>
+          <li>Centra danych i serwerownie — ochrona przed utratą danych</li>
+          <li>Zakłady produkcyjne pracujące w trybie ciągłym</li>
+          <li>Fermy zwierząt — wentylacja, pojenie, ogrzewanie</li>
+          <li>Hotele i obiekty noclegowe — komfort i bezpieczeństwo gości</li>
+        </ul>
+        <p>Centrum Mocy specjalizuje się w doborze i montażu agregatów z autostartem od ponad 30 lat. Każda instalacja jest poprzedzona szczegółową analizą potrzeb energetycznych obiektu.</p>
+      </div>
+    </article>
+
+    <!-- ARTYKUŁ 2 -->
+    <article class="blog-card" itemscope itemtype="https://schema.org/Article">
+      <div class="blog-card-top">
+        <span class="blog-cat">Dom i posesja</span>
+        <h3 itemprop="headline">Agregat prądotwórczy dla domu — jaki wybrać i ile kosztuje?</h3>
+        <p itemprop="description">Coraz więcej właścicieli domów jednorodzinnych decyduje się na zakup agregatu. Podpowiadamy, jaki agregat do domu wybrać, jaką moc potrzebujesz i na co zwrócić uwagę przy zakupie.</p>
+      </div>
+      <div class="blog-card-bot">
+        <div class="blog-meta"><span>📅</span>Luty 2025 · <span>⏱</span>6 min czytania</div>
+        <a class="blog-read" href="#" onclick="this.closest('.blog-card').classList.toggle('expanded');this.textContent=this.closest('.blog-card').classList.contains('expanded')?'Zwiń ↑':'Czytaj dalej →';return false;">Czytaj dalej →</a>
+      </div>
+      <div class="blog-body" itemprop="articleBody">
+        <p>Brak prądu w domu to nie tylko brak oświetlenia. Dla wielu rodzin to zatrzymanie ogrzewania, utrata zapasów w zamrażarce, brak dostępu do internetu i praca zdalna w trybie kryzysowym. <strong>Domowy agregat prądotwórczy eliminuje ten problem raz na zawsze.</strong></p>
+        <h4>Jaką moc agregatu potrzebujesz?</h4>
+        <p>Dobór mocy to kluczowa decyzja. Agregat za mały nie podoła obciążeniom — za duży będzie przepalać paliwo na biegu jałowym. Oto orientacyjne zapotrzebowanie typowego domu:</p>
+        <ul>
+          <li>Oświetlenie LED całego domu: 0,5–1 kW</li>
+          <li>Lodówka + zamrażarka: 0,5–1 kW</li>
+          <li>Kocioł gazowy z pompą CO: 0,3–0,8 kW</li>
+          <li>Pompa ciepła: 2–5 kW (peak rozruchowy nawet 10 kW!)</li>
+          <li>Ładowarka do samochodu elektrycznego: 3–11 kW</li>
+        </ul>
+        <h4>Agregat benzynowy, gazowy czy dieselowy?</h4>
+        <p><strong>Agregaty benzynowe</strong> (3–8 kVA) są tańsze i lżejsze, ale droższe w eksploatacji. Idealne na okazjonalne użycie. <strong>Agregaty dieselowe</strong> (5–30 kVA) są droższe w zakupie, ale tańsze w eksploatacji, trwalsze i lepsze do długotrwałej pracy ciągłej. To najlepszy wybór dla domu z autostartem. <strong>Agregaty gazowe</strong> (LPG/gaz ziemny) to opcja dla domów z przyłączem gazowym — paliwo jest tanie i zawsze dostępne.</p>
+        <h4>Cichy agregat do domu — co to znaczy?</h4>
+        <p>Nowoczesne agregaty domowe z wyciszeniem (tzw. agregatofonią) pracują na poziomie <strong>55–65 dB z odległości 7 metrów</strong> — tyle co normalna rozmowa. Montaż w kotłowni lub szopie dodatkowo redukuje hałas. Centrum Mocy oferuje agregaty domowe od 5 do 30 kVA z pełnym montażem i autostartem.</p>
+      </div>
+    </article>
+
+    <!-- ARTYKUŁ 3 -->
+    <article class="blog-card" itemscope itemtype="https://schema.org/Article">
+      <div class="blog-card-top">
+        <span class="blog-cat">Biznes i przemysł</span>
+        <h3 itemprop="headline">Zasilanie awaryjne dla firmy — jak zabezpieczyć ciągłość działania?</h3>
+        <p itemprop="description">Przestój produkcji kosztuje firmy dziesiątki tysięcy złotych za godzinę. Profesjonalne zasilanie awaryjne dla firmy to inwestycja, która zwraca się już przy pierwszej awarii sieci energetycznej.</p>
+      </div>
+      <div class="blog-card-bot">
+        <div class="blog-meta"><span>📅</span>Styczeń 2025 · <span>⏱</span>7 min czytania</div>
+        <a class="blog-read" href="#" onclick="this.closest('.blog-card').classList.toggle('expanded');this.textContent=this.closest('.blog-card').classList.contains('expanded')?'Zwiń ↑':'Czytaj dalej →';return false;">Czytaj dalej →</a>
+      </div>
+      <div class="blog-body" itemprop="articleBody">
+        <p>Według badań, przeciętny zakład produkcyjny traci od <strong>15 000 do 100 000 zł za godzinę przestoju</strong> spowodowanego brakiem zasilania. Do tego dochodzą koszty pośrednie: uszkodzone maszyny po nagłym wyłączeniu, niezadowoleni klienci, kary umowne za opóźnienia. Profesjonalne zasilanie awaryjne eliminuje to ryzyko.</p>
+        <h4>UPS czy agregat — co wybrać dla firmy?</h4>
+        <p><strong>UPS (Uninterruptible Power Supply)</strong> zapewnia zasilanie przez minuty do kilku godzin — wystarczy na podtrzymanie serwerów i bezpieczne zamknięcie systemów. <strong>Agregat prądotwórczy</strong> zapewnia zasilanie przez wiele godzin lub dni — tak długo, jak jest paliwo. Optymalne rozwiązanie to <strong>połączenie UPS + agregat</strong>: UPS podtrzymuje zasilanie przez pierwsze 30–60 sekund, agregat uruchamia się i przejmuje obciążenie na dowolnie długi czas.</p>
+        <h4>Jaką moc agregatu potrzebuje firma?</h4>
+        <ul>
+          <li>Małe biuro (20 stanowisk): 15–30 kVA</li>
+          <li>Magazyn z chłodnią: 50–150 kVA</li>
+          <li>Zakład produkcyjny (linia montażowa): 200–500 kVA</li>
+          <li>Duży zakład przemysłowy: 500–2000 kVA</li>
+          <li>Centrum danych / serwerownia: zależnie od obciążenia IT</li>
+        </ul>
+        <h4>Wymogi prawne dotyczące zasilania awaryjnego</h4>
+        <p>Niektóre obiekty mają <strong>ustawowy obowiązek</strong> posiadania zasilania awaryjnego. Dotyczy to szpitali i placówek medycznych (Rozporządzenie MZ), hoteli powyżej określonej kategorii, centrów handlowych i obiektów użyteczności publicznej, budynków wysokościowych oraz obiektów przemysłowych z substancjami niebezpiecznymi. Centrum Mocy pomaga w spełnieniu wszystkich wymogów formalnych — od projektu, przez montaż, po odbiory UDT i certyfikacje.</p>
+      </div>
+    </article>
+
   </div>
 </section>
 
