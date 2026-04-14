@@ -137,6 +137,18 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}
 @media(max-width:900px){.audience-split,.ochrona-layout,.contact-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr 1fr;}.real-grid{grid-template-columns:1fr;}nav ul{display:none;}}
 @media(max-width:600px){.services-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.hero-stats{gap:2rem;flex-wrap:wrap;}.trust-item{border-right:none;}}
+
+.hero-visual{position:absolute;right:3vw;top:50%;transform:translateY(-50%);width:42vw;max-width:560px;z-index:1;display:flex;flex-direction:column;gap:1rem;}
+.hero-img-main{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,122,74,.12);background:#E8F0EB;}
+.hero-img-main svg{width:100%;height:auto;display:block;}
+.hero-img-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.hero-img-sm{border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(26,122,74,.10);background:#E8F0EB;}
+.hero-img-sm svg{width:100%;height:auto;display:block;}
+.real-card-img{height:160px;overflow:hidden;background:#E8F0EB;display:flex;align-items:center;justify-content:center;}
+.real-card-img svg{width:100%;height:100%;object-fit:cover;}
+.aud-visual{margin-top:1.5rem;border-radius:12px;overflow:hidden;background:#EAF4EE;}
+.aud-visual svg{width:100%;height:auto;display:block;}
+@media(max-width:900px){.hero-visual{display:none;}}
 </style>
 </head>
 <body>
@@ -169,6 +181,104 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
       <div class="stat"><div class="stat-n" id="c1">30+</div><div class="stat-l">Lat w branży</div></div>
       <div class="stat"><div class="stat-n" id="c2">1000+</div><div class="stat-l">Instalacji</div></div>
       <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Serwis awaryjny</div></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-img-main">
+      <!-- SVG: agregat przemysłowy -->
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <rect width="560" height="320" fill="#EAF4EE"/>
+        <!-- Podłoga / cień -->
+        <ellipse cx="280" cy="295" rx="200" ry="16" fill="#C5D5CC" opacity=".5"/>
+        <!-- Korpus agregatu - główny -->
+        <rect x="80" y="100" width="400" height="180" rx="12" fill="#2C3830"/>
+        <rect x="80" y="100" width="400" height="12" rx="6" fill="#1A7A4A"/>
+        <!-- Panel przedni -->
+        <rect x="100" y="128" width="160" height="130" rx="8" fill="#1A7A4A" opacity=".15"/>
+        <rect x="110" y="138" width="140" height="110" rx="6" fill="#0F1612" opacity=".4"/>
+        <!-- Ekran LCD -->
+        <rect x="118" y="146" width="124" height="64" rx="4" fill="#0a2a1a"/>
+        <text x="180" y="168" text-anchor="middle" font-family="monospace" font-size="11" fill="#4ade80">CENTRUM MOCY</text>
+        <text x="180" y="184" text-anchor="middle" font-family="monospace" font-size="10" fill="#86efac">STATUS: GOTOWY</text>
+        <text x="180" y="200" text-anchor="middle" font-family="monospace" font-size="10" fill="#86efac">230V / 50Hz ✓</text>
+        <!-- Przyciski -->
+        <circle cx="128" cy="226" r="10" fill="#1A7A4A"/>
+        <circle cx="155" cy="226" r="10" fill="#0F1612"/>
+        <circle cx="182" cy="226" r="10" fill="#0F1612"/>
+        <circle cx="209" cy="226" r="7" fill="#dc2626"/>
+        <circle cx="232" cy="226" r="7" fill="#f59e0b"/>
+        <!-- Wentylator prawa strona -->
+        <rect x="280" y="128" width="180" height="130" rx="8" fill="#1A7A4A" opacity=".1"/>
+        <circle cx="370" cy="193" r="48" fill="none" stroke="#5A6B62" stroke-width="2"/>
+        <circle cx="370" cy="193" r="36" fill="none" stroke="#5A6B62" stroke-width="1.5"/>
+        <line x1="370" y1="145" x2="370" y2="241" stroke="#5A6B62" stroke-width="2"/>
+        <line x1="322" y1="193" x2="418" y2="193" stroke="#5A6B62" stroke-width="2"/>
+        <line x1="336" y1="159" x2="404" y2="227" stroke="#5A6B62" stroke-width="1.5"/>
+        <line x1="404" y1="159" x2="336" y2="227" stroke="#5A6B62" stroke-width="1.5"/>
+        <circle cx="370" cy="193" r="12" fill="#1A7A4A"/>
+        <!-- Rura wydechowa -->
+        <rect x="450" y="60" width="28" height="120" rx="8" fill="#2C3830"/>
+        <rect x="446" y="56" width="36" height="16" rx="4" fill="#5A6B62"/>
+        <!-- Dym -->
+        <ellipse cx="464" cy="40" rx="16" ry="10" fill="#C5D5CC" opacity=".5"/>
+        <ellipse cx="470" cy="22" rx="12" ry="8" fill="#C5D5CC" opacity=".3"/>
+        <!-- Nogi -->
+        <rect x="110" y="272" width="40" height="16" rx="4" fill="#0F1612"/>
+        <rect x="410" y="272" width="40" height="16" rx="4" fill="#0F1612"/>
+        <!-- Badge -->
+        <rect x="88" y="108" width="120" height="22" rx="4" fill="#1A7A4A"/>
+        <text x="148" y="123" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="600">AGREGAT PRO</text>
+      </svg>
+    </div>
+    <div class="hero-img-row">
+      <div class="hero-img-sm">
+        <!-- SVG: autostart panel -->
+        <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="160" fill="#EAF4EE"/>
+          <rect x="20" y="20" width="220" height="120" rx="10" fill="#2C3830"/>
+          <rect x="20" y="20" width="220" height="8" rx="4" fill="#1A7A4A"/>
+          <rect x="30" y="36" width="200" height="90" rx="6" fill="#0F1612" opacity=".6"/>
+          <text x="130" y="58" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#86efac" font-weight="600">AUTOSTART SZR</text>
+          <text x="130" y="74" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ade80">● SIEĆ: OK</text>
+          <text x="130" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#f59e0b">● CZAS: 3.2s</text>
+          <text x="130" y="102" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ade80">● AGREGAT: ON</text>
+          <circle cx="55" cy="136" r="10" fill="#1A7A4A"/>
+          <text x="55" y="140" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">⚡</text>
+          <rect x="75" y="128" width="120" height="14" rx="3" fill="#1A7A4A" opacity=".3"/>
+          <rect x="75" y="128" width="90" height="14" rx="3" fill="#1A7A4A"/>
+          <text x="205" y="140" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#86efac">24/7</text>
+        </svg>
+      </div>
+      <div class="hero-img-sm">
+        <!-- SVG: dom z agregatem -->
+        <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="160" fill="#EAF4EE"/>
+          <!-- Niebo -->
+          <rect width="260" height="100" fill="#D0EAD9"/>
+          <!-- Dom -->
+          <polygon points="60,80 130,20 200,80" fill="#1A7A4A"/>
+          <rect x="75" y="80" width="110" height="68" fill="#FAFCFB"/>
+          <rect x="75" y="80" width="110" height="5" fill="#15643C"/>
+          <!-- Okna -->
+          <rect x="88" y="95" width="28" height="22" rx="2" fill="#D0EAD9"/>
+          <rect x="124" y="95" width="28" height="22" rx="2" fill="#D0EAD9"/>
+          <!-- Drzwi -->
+          <rect x="110" y="122" width="22" height="26" rx="2" fill="#2C3830"/>
+          <circle cx="128" cy="136" r="2" fill="#1A7A4A"/>
+          <!-- Agregat przy domu -->
+          <rect x="200" y="110" width="46" height="30" rx="4" fill="#2C3830"/>
+          <rect x="200" y="110" width="46" height="5" rx="2" fill="#1A7A4A"/>
+          <rect x="205" y="118" width="20" height="16" rx="2" fill="#0F1612" opacity=".5"/>
+          <circle cx="234" cy="126" r="8" fill="none" stroke="#5A6B62" stroke-width="1.5"/>
+          <circle cx="234" cy="126" r="3" fill="#1A7A4A"/>
+          <!-- Kabel -->
+          <path d="M200 125 Q180 130 180 148" stroke="#1A7A4A" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+          <!-- Trawa -->
+          <rect x="0" y="148" width="260" height="12" fill="#C5D5CC"/>
+          <text x="223" y="153" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#1A7A4A" font-weight="600">SILENT</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -263,9 +373,83 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
     <h2 class="section-h2">Ponad 1000 instalacji<br><em>w całej Polsce</em></h2>
   </div>
   <div class="real-grid rev">
-    <div class="real-card"><div class="real-top"><div class="real-cat">Przemysł · Mazowsze</div><h3>Zakład produkcji spożywczej</h3><p>Agregat z systemem SZR. Przełączenie poniżej 3 sekund. Zero przestojów od uruchomienia.</p></div><div class="real-bot"><div class="real-s"><strong>500 kVA</strong><span>Moc</span></div><div class="real-s"><strong>&lt;3 sek</strong><span>Przełączenie</span></div></div></div>
-    <div class="real-card"><div class="real-top"><div class="real-cat">Ochrona ludności · Śląsk</div><h3>Szpital powiatowy — bloki operacyjne</h3><p>Agregat 800 kVA z systemem ATS. Spełnienie wymogów prawnych NFZ i certyfikacje UDT.</p></div><div class="real-bot"><div class="real-s"><strong>800 kVA</strong><span>Moc</span></div><div class="real-s"><strong>ATS</strong><span>System</span></div></div></div>
-    <div class="real-card"><div class="real-top"><div class="real-cat">Dom · Podkarpacie</div><h3>Willa z basenem i systemem alarmowym</h3><p>Cichy agregat 15 kVA z autostartem. Pełna ochrona ogrzewania, alarmu i elektroniki.</p></div><div class="real-bot"><div class="real-s"><strong>15 kVA</strong><span>Moc</span></div><div class="real-s"><strong>42 dB</strong><span>Hałas</span></div></div></div>
+    <div class="real-card"><div class="real-card-img">
+  <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="160" fill="#EAF4EE"/>
+    <rect x="0" y="100" width="400" height="60" fill="#C5D5CC" opacity=".4"/>
+    <!-- Fabryka -->
+    <rect x="40" y="40" width="320" height="80" fill="#2C3830"/>
+    <rect x="40" y="40" width="320" height="8" fill="#1A7A4A"/>
+    <!-- Okna fabryki -->
+    <rect x="60" y="55" width="30" height="40" rx="2" fill="#D0EAD9" opacity=".6"/>
+    <rect x="105" y="55" width="30" height="40" rx="2" fill="#D0EAD9" opacity=".6"/>
+    <rect x="150" y="55" width="30" height="40" rx="2" fill="#D0EAD9" opacity=".6"/>
+    <rect x="195" y="55" width="30" height="40" rx="2" fill="#D0EAD9" opacity=".6"/>
+    <!-- Komin -->
+    <rect x="310" y="15" width="20" height="65" fill="#5A6B62"/>
+    <ellipse cx="320" cy="12" rx="14" ry="6" fill="#8FA398"/>
+    <!-- Agregat -->
+    <rect x="240" y="70" width="55" height="30" rx="3" fill="#1A7A4A"/>
+    <rect x="240" y="70" width="55" height="5" rx="2" fill="#15643C"/>
+    <text x="267" y="88" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="600">500 kVA</text>
+    <!-- Piorun badge -->
+    <circle cx="360" cy="30" r="18" fill="#1A7A4A"/>
+    <text x="360" y="35" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">⚡</text>
+  </svg>
+</div><div class="real-top"><div class="real-cat">Przemysł · Mazowsze</div><h3>Zakład produkcji spożywczej</h3><p>Agregat z systemem SZR. Przełączenie poniżej 3 sekund. Zero przestojów od uruchomienia.</p></div><div class="real-bot"><div class="real-s"><strong>500 kVA</strong><span>Moc</span></div><div class="real-s"><strong>&lt;3 sek</strong><span>Przełączenie</span></div></div></div>
+    <div class="real-card"><div class="real-card-img">
+  <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="160" fill="#EAF4EE"/>
+    <!-- Budynek szpitala -->
+    <rect x="60" y="30" width="280" height="110" fill="#FAFCFB" stroke="#C5D5CC" stroke-width="1.5"/>
+    <rect x="60" y="30" width="280" height="10" fill="#1A7A4A"/>
+    <!-- Krzyż na budynku -->
+    <rect x="178" y="15" width="44" height="14" rx="3" fill="#dc2626"/>
+    <text x="200" y="26" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="700">+</text>
+    <text x="200" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white">SZPITAL</text>
+    <!-- Okna -->
+    <rect x="80" y="55" width="30" height="28" rx="2" fill="#D0EAD9"/>
+    <rect x="122" y="55" width="30" height="28" rx="2" fill="#D0EAD9"/>
+    <rect x="248" y="55" width="30" height="28" rx="2" fill="#D0EAD9"/>
+    <rect x="290" y="55" width="30" height="28" rx="2" fill="#D0EAD9"/>
+    <!-- Agregat 800 kVA -->
+    <rect x="100" y="100" width="200" height="32" rx="5" fill="#2C3830"/>
+    <rect x="100" y="100" width="200" height="6" rx="3" fill="#1A7A4A"/>
+    <text x="200" y="121" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#86efac" font-weight="600">AGREGAT 800 kVA · ATS · CIĄGŁOŚĆ 24/7</text>
+    <!-- Linia zasilania z efektem -->
+    <line x1="170" y1="95" x2="170" y2="100" stroke="#1A7A4A" stroke-width="3"/>
+    <line x1="230" y1="95" x2="230" y2="100" stroke="#1A7A4A" stroke-width="3"/>
+  </svg>
+</div><div class="real-top"><div class="real-cat">Ochrona ludności · Śląsk</div><h3>Szpital powiatowy — bloki operacyjne</h3><p>Agregat 800 kVA z systemem ATS. Spełnienie wymogów prawnych NFZ i certyfikacje UDT.</p></div><div class="real-bot"><div class="real-s"><strong>800 kVA</strong><span>Moc</span></div><div class="real-s"><strong>ATS</strong><span>System</span></div></div></div>
+    <div class="real-card"><div class="real-card-img">
+  <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="160" fill="#EAF4EE"/>
+    <rect width="400" height="90" fill="#D0EAD9"/>
+    <!-- Willa -->
+    <polygon points="80,90 200,20 320,90" fill="#1A7A4A"/>
+    <rect x="100" y="90" width="200" height="60" fill="#FAFCFB"/>
+    <rect x="100" y="90" width="200" height="6" fill="#15643C"/>
+    <!-- Garaż -->
+    <rect x="100" y="110" width="80" height="40" fill="#E8F0EB" stroke="#C5D5CC" stroke-width="1"/>
+    <!-- Okna -->
+    <rect x="200" y="98" width="32" height="28" rx="2" fill="#D0EAD9"/>
+    <rect x="248" y="98" width="32" height="28" rx="2" fill="#D0EAD9"/>
+    <!-- Drzwi -->
+    <rect x="170" y="120" width="24" height="30" rx="2" fill="#2C3830"/>
+    <!-- Agregat przy garażu -->
+    <rect x="320" y="112" width="55" height="32" rx="5" fill="#2C3830"/>
+    <rect x="320" y="112" width="55" height="6" rx="3" fill="#1A7A4A"/>
+    <text x="347" y="128" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#86efac" font-weight="600">15 kVA</text>
+    <text x="347" y="139" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#5A6B62">42 dB · CICHY</text>
+    <!-- Drzewka -->
+    <circle cx="50" cy="100" r="20" fill="#1A7A4A" opacity=".6"/>
+    <rect x="47" y="120" width="6" height="20" fill="#2C3830"/>
+    <circle cx="360" cy="105" r="15" fill="#1A7A4A" opacity=".5"/>
+    <rect x="357" y="120" width="5" height="18" fill="#2C3830"/>
+    <!-- Trawa -->
+    <rect x="0" y="148" width="400" height="12" fill="#C5D5CC" opacity=".7"/>
+  </svg>
+</div><div class="real-top"><div class="real-cat">Dom · Podkarpacie</div><h3>Willa z basenem i systemem alarmowym</h3><p>Cichy agregat 15 kVA z autostartem. Pełna ochrona ogrzewania, alarmu i elektroniki.</p></div><div class="real-bot"><div class="real-s"><strong>15 kVA</strong><span>Moc</span></div><div class="real-s"><strong>42 dB</strong><span>Hałas</span></div></div></div>
   </div>
 </section>
 
