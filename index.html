@@ -23,7 +23,7 @@ nav ul a{padding:.45rem .85rem;color:var(--gray2);text-decoration:none;font-size
 nav ul a:hover{background:var(--gray5);color:var(--black);}
 .nav-cta{background:var(--green)!important;color:#fff!important;padding:.5rem 1.2rem!important;border-radius:8px!important;margin-left:.5rem;}
 .nav-cta:hover{background:var(--green2)!important;}
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 5vw 60px;position:relative;overflow:hidden;}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 5vw 40px;position:relative;overflow:hidden;}
 .hero-inner{max-width:780px;position:relative;z-index:1;}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--green3);color:var(--green2);padding:.38rem .9rem;border-radius:100px;font-size:.72rem;font-weight:500;letter-spacing:.04em;margin-bottom:2rem;animation:fup .5s ease both;}
 .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
@@ -44,7 +44,7 @@ nav ul a:hover{background:var(--gray5);color:var(--black);}
 .trust{background:var(--gray5);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.4rem 5vw;display:flex;justify-content:center;flex-wrap:wrap;}
 .trust-item{display:flex;align-items:center;gap:.6rem;padding:.5rem 1.8rem;font-size:.75rem;font-weight:500;color:var(--gray2);border-right:1px solid var(--border);letter-spacing:.03em;}
 .trust-item:last-child{border-right:none;}
-section{padding:6rem 5vw;}
+section{padding:4rem 5vw;}
 .section-label{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem;font-family:'Montserrat',sans-serif;}
 .section-label::before{content:'';width:18px;height:2px;background:var(--green);border-radius:2px;}
 .section-h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;}
@@ -144,7 +144,12 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
 .hero-img-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .hero-img-sm{border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(26,122,74,.10);background:#E8F0EB;}
 .hero-img-sm svg{width:100%;height:auto;display:block;}
-.real-card-img{height:160px;overflow:hidden;background:#E8F0EB;display:flex;align-items:center;justify-content:center;}
+
+.real-card-img{height:200px;overflow:hidden;background:#D0EAD9;display:flex;align-items:center;justify-content:center;position:relative;}
+.real-card-img svg{width:100%;height:100%;display:block;}
+.aud-card-img{border-radius:12px;overflow:hidden;margin-top:1.4rem;height:180px;background:#D0EAD9;}
+.aud-card-img svg{width:100%;height:100%;display:block;}
+
 .real-card-img svg{width:100%;height:100%;object-fit:cover;}
 .aud-visual{margin-top:1.5rem;border-radius:12px;overflow:hidden;background:#EAF4EE;}
 .aud-visual svg{width:100%;height:auto;display:block;}
@@ -308,7 +313,26 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
         <li>Urządzenia medyczne zawsze pod napięciem</li>
         <li>System alarmowy i monitoring aktywny</li>
         <li>Agregaty 5–30 kVA — ciche i dyskretne</li>
-      </ul>
+      </ul><div class="aud-card-img"><svg viewBox="0 0 440 180" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="sd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8e0f7"/><stop offset="100%" stop-color="#D0EAD9"/></linearGradient></defs>
+  <rect width="440" height="180" fill="url(#sd)"/>
+  <rect x="0" y="140" width="440" height="40" fill="#86d07a"/>
+  <polygon points="80,90 200,32 320,90" fill="#1A7A4A"/>
+  <rect x="96" y="90" width="228" height="80" fill="#FAFCFB"/>
+  <rect x="96" y="90" width="228" height="5" fill="#15643C"/>
+  <rect x="96" y="110" width="78" height="60" fill="#EDF2EF" stroke="#C5D5CC" stroke-width="1"/>
+  <rect x="188" y="100" width="38" height="30" rx="2" fill="#d0e8f0"/>
+  <rect x="238" y="100" width="36" height="30" rx="2" fill="#d0e8f0"/>
+  <rect x="180" y="132" width="28" height="38" rx="2" fill="#2C3830"/>
+  <rect x="326" y="118" width="62" height="38" rx="5" fill="#2C3830"/>
+  <rect x="326" y="118" width="62" height="6" rx="3" fill="#1A7A4A"/>
+  <rect x="330" y="128" width="28" height="22" rx="2" fill="#0a2a1a"/>
+  <text x="344" y="136" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#4ade80">15 kVA</text>
+  <text x="344" y="144" text-anchor="middle" font-family="monospace" font-size="5" fill="#86efac">CICHY</text>
+  <circle cx="37" cy="118" r="24" fill="#1A7A4A"/><rect x="34" y="142" width="7" height="14" fill="#5A3E2B"/>
+  <circle cx="410" cy="118" r="20" fill="#1A7A4A"/><rect x="407" y="138" width="6" height="12" fill="#5A3E2B"/>
+  <path d="M326 137 Q316 137 316 128 Q316 118 290 118" stroke="#1A7A4A" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+</svg></div>
     </div>
     <div class="aud-card">
       <span class="aud-icon">🏭</span>
@@ -321,7 +345,36 @@ footer{background:var(--black);color:var(--gray4);padding:3rem 5vw 2rem;}
         <li>Spełnienie wymogów prawnych (szpitale, hotele)</li>
         <li>Agregaty 30–2000 kVA dla każdej skali</li>
         <li>Systemy SZR i ATS — pełna automatyzacja</li>
-      </ul>
+      </ul><div class="aud-card-img"><svg viewBox="0 0 440 180" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0F1612"/><stop offset="100%" stop-color="#1A3A25"/></linearGradient></defs>
+  <rect width="440" height="180" fill="url(#sf)"/>
+  <circle cx="50" cy="20" r="1.2" fill="white" opacity=".7"/><circle cx="130" cy="10" r="1" fill="white" opacity=".6"/>
+  <circle cx="250" cy="18" r="1.5" fill="white" opacity=".8"/><circle cx="380" cy="8" r="1" fill="white" opacity=".6"/>
+  <rect x="20" y="65" width="260" height="105" fill="#2C3830"/>
+  <rect x="20" y="65" width="260" height="7" fill="#1A7A4A"/>
+  <rect x="35" y="80" width="32" height="25" rx="1" fill="#f59e0b" opacity=".6"/>
+  <rect x="78" y="80" width="32" height="25" rx="1" fill="#f59e0b" opacity=".8"/>
+  <rect x="121" y="80" width="32" height="25" rx="1" fill="#f59e0b" opacity=".5"/>
+  <rect x="164" y="80" width="32" height="25" rx="1" fill="#f59e0b" opacity=".7"/>
+  <rect x="35" y="117" width="32" height="25" rx="1" fill="#f59e0b" opacity=".4"/>
+  <rect x="78" y="117" width="32" height="25" rx="1" fill="#f59e0b" opacity=".6"/>
+  <rect x="121" y="117" width="32" height="25" rx="1" fill="#f59e0b" opacity=".8"/>
+  <rect x="280" y="30" width="20" height="85" fill="#3a4a40"/>
+  <rect x="316" y="44" width="18" height="71" fill="#3a4a40"/>
+  <rect x="350" y="36" width="20" height="79" fill="#3a4a40"/>
+  <ellipse cx="290" cy="22" rx="16" ry="9" fill="#5A6B62" opacity=".5"/>
+  <ellipse cx="325" cy="36" rx="13" ry="7" fill="#5A6B62" opacity=".4"/>
+  <ellipse cx="360" cy="28" rx="15" ry="8" fill="#5A6B62" opacity=".4"/>
+  <rect x="285" y="120" width="80" height="55" rx="5" fill="#1A7A4A"/>
+  <rect x="285" y="120" width="80" height="8" rx="4" fill="#15643C"/>
+  <rect x="290" y="133" width="46" height="35" rx="3" fill="#0a2a1a"/>
+  <text x="313" y="144" text-anchor="middle" font-family="monospace" font-size="7" fill="#4ade80">500 kVA</text>
+  <text x="313" y="154" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#4ade80">STATUS: ON</text>
+  <text x="313" y="163" text-anchor="middle" font-family="monospace" font-size="6" fill="#86efac">SZR ✓</text>
+  <rect x="0" y="165" width="440" height="15" fill="#1a2820"/>
+  <rect x="22" y="54" width="80" height="16" rx="3" fill="#1A7A4A"/>
+  <text x="62" y="66" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="white" font-weight="700">⚡ ZASILANIE 24/7</text>
+</svg></div>
     </div>
   </div>
 </section>
